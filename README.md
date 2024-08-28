@@ -12,6 +12,15 @@ The way we are going to build this is in 3 parts:
 - Query Index: Answering search queries on the index that we built.
 - Ranking: Ranking the search results of query index.
 
+# Parsing the documents
+
+While parsing our document we will do the following things:
+1) **Concatenate** the title and the text of the page.
+2) **Lowercase** all words.
+3) **Get all tokens**, where a token is a string of alphanumeric characters terminated by a non-alphanumeric character. The alphanumeric characters are defined to be [a-z0-9]. So, the tokens for the word ‘apple+orange’ would be ‘apple’ and ‘orange’.
+4) **Filter out** all the tokens that are in the **stop words** list, such as ‘a’, ‘an’, ‘the’.
+5) **Stem each token** using to finally obtain the stream of terms. Porter Stemmer removes common endings from words. For example the stemmed version of the words fish, fishes, fishing, fisher, fished are all fish.
+
 # Inverted Index
 
 ## What is it and how is it used in Search Engines2?
