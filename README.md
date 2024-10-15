@@ -3,8 +3,9 @@ Implementing a search engine that answers queries on Wikipedia articles.
 Our corpus (document collection) is Wikipedia articles. 
 
 First Step is that we need to write a crawler for fetching the Wikipedia articles.
+So for crawler checkout [link](./crawler/readme.md)
 
-The way we are going to build this is in 3 parts:
+The way we are going to build the search engine is in 3 parts:
 
 - Create Index: Building the index of our search engine.
 - Query Index: Answering search queries on the index that we built.
