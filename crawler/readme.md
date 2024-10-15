@@ -16,4 +16,3 @@ Crawlers are automated scripts or programs which browse the internet systematica
 - **Indexing:** The content of each page is processed and stored in an index, often along with metadata like the URL, timestamps, and keywords.
 
 >> This indexing is what is done in inverted index
-
