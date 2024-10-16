@@ -10,12 +10,17 @@ headers = {
 }
 # headers to mimic the actions of a browser
 
-# Starting menu
-print("Select any one option from below: ")
-print("1. To update the featured articles database.")
-print("2. To proceed with the present featured articles database locally")
 
-user_input = int(input("Enter your choice"))
+# This is where we will define our wiki crawler
+
+
+
+# Starting menu
+print("Select any one option from below: \n")
+print("1. To update the featured articles database and then proceed")
+print("2. To proceed with the present featured articles database locally\n")
+
+user_input = int(input("Enter your choice: "))
 
 if user_input == 1:
   feat_page = requests.get(url_feat_articles, headers=headers)
@@ -50,7 +55,7 @@ if user_input == 1:
     )
 
   # Saving this list in the data folder named featured articles
-  with open("./crawler/data/featured_articles.json", "w") as feat_articles_json:
+  with open("./crawler/data/featured_articles_list.json", "w") as feat_articles_json:
     json.dump(articles, feat_articles_json, indent=4)
 
   # User promt informing the completion of list
@@ -61,5 +66,4 @@ elif user_input == 2:
   pass
 
 else:
-  print("Please choose from available choices...")
-  print("Exiting...")
+  print("Please choose from available choices. Exiting...")
