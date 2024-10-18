@@ -12,7 +12,20 @@ headers = {
 
 
 # This is where we will define our wiki crawler
+def crawlon():
+  """Crawls on the listed articles to get their data
+  
+  Scrapped data:
+    Title 
+    Body
+  """
 
+  # Selecting the number of articles which need to be downloaded
+  number_of_articles = int(input(" Number of articles to download for database: "))
+
+  # Calling a random shuffling algorithm 
+  # To get required number of random articles 
+  
 
 
 # Starting menu
@@ -63,7 +76,7 @@ if user_input == 1:
   print(f"Total articles found: {len(articles)}")
 
 elif user_input == 2:
-  pass
+  crawlon()
 
 else:
   print("Please choose from available choices. Exiting...")
