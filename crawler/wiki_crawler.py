@@ -1,6 +1,6 @@
 # This crawler is to fetch wikipedia fetaured articles
 # The fetched articles data is to be stored seperately as different files in the data folder
-import requests, json
+import requests, json, asyncio, aiohttp
 from bs4 import BeautifulSoup
 
 url_wiki = "https://en.wikipedia.org"
@@ -21,12 +21,32 @@ def crawlon():
   """
 
   # Selecting the number of articles which need to be downloaded
-  number_of_articles = int(input(" Number of articles to download for database: "))
+  # number_of_articles = int(input(" Number of articles to download for database: "))
+
+
+  # Function defined to download pages seperately
+  async def scrap_article(url, title):
+    async with aiohttp.ClientSession() as session:
+      async with session.get(url) as response:
+        if response.status == 200:
+          file_data = await response.text()
+          artical_html = BeautifulSoup(file_data, "html.parser") 
+          artical_html = artical_html.prettify()
+          print(artical_html)
+          return artical_html
+
+        else:
+          print(f"HTML Response Code: {response}")
+          return None
+
 
   # Calling a random shuffling algorithm 
   # To get required number of random articles 
-  
-
+  # Loading the json file
+  with open("./crawler/data/featured_articles_list.json") as articles_file:
+    articals_data = json.load(articles_file)
+    asyncio.run(scrap_article("https://en.wikipedia.org/wiki/23_Wall_Street", "TITLE"))
+    
 
 # Starting menu
 print("Select any one option from below: \n")
